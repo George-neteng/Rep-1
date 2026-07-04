@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анализ положения мяча · Computer Vision</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">⚽ <span>Ball&nbsp;Tracker</span></div>
+    <div class="sub">Детекция и анализ положения мяча · YOLOv8</div>
+  </header>
+
+  <main class="wrap">
+    <section class="card uploader">
+      <h2>Загрузка</h2>
+      <label id="dropZone" class="drop">
+        <input type="file" id="fileInput" accept="image/*,video/*" hidden>
+        <div class="drop-inner">
+          <div class="drop-icon">⬆</div>
+          <div class="drop-text">Перетащите фото или видео<br>или нажмите для выбора</div>
+          <div id="fileName" class="file-name"></div>
+        </div>
+      </label>
+
+      <div class="controls">
+        <label class="conf">
+          Порог уверенности: <b id="confVal">0.25</b>
+          <input type="range" id="confRange" min="0.05" max="0.9" step="0.05" value="0.25">
+        </label>
+        <button id="runBtn" class="btn" disabled>Запустить обработку</button>
+      </div>
+      <div id="status" class="status"></div>
+    </section>
+
+    <section class="card result">
+      <h2>Результат</h2>
+      <div id="resultBox" class="result-box empty">
+        <span>Здесь появится размеченное изображение или видео</span>
+      </div>
+      <div id="reportBtns" class="report-btns hidden">
+        <a id="pdfBtn" class="btn ghost" href="#">Скачать PDF</a>
+        <a id="xlsxBtn" class="btn ghost" href="#">Скачать Excel</a>
+      </div>
+    </section>
+
+    <section class="card stats">
+      <h2>Статистика</h2>
+      <div id="statsBox" class="stats-box">
+        <span class="muted">Нет данных</span>
+      </div>
+      <div id="zoneGrid" class="zone-grid hidden"></div>
+    </section>
+
+    <section class="card history">
+      <h2>История запросов</h2>
+      <div id="historyBox" class="history-box">
+        <span class="muted">Загрузка…</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">Computer Vision · YOLOv8 · Flask · OpenCV</footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

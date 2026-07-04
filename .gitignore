@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.pt
+history.db
+static/uploads/*
+static/results/*
+static/reports/*
+!static/uploads/.gitkeep
+!static/results/.gitkeep
+!static/reports/.gitkeep
